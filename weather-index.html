@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Real-Time Weather Dashboard</title>
+<link rel="stylesheet" href="weather-style.css" />
+</head>
+<body>
+
+  <div class="app">
+    <header class="app-header">
+      <h1>🌦️ Weather Application</h1>
+      <p class="subtitle">Live Weather</p>
+    </header>
+
+    <form id="searchForm" class="search-bar" autocomplete="off">
+      <input
+        type="text"
+        id="cityInput"
+        placeholder="Enter city name (e.g. Mumbai, London, Tokyo)"
+        required
+      />
+      <button type="submit" id="searchBtn">Search</button>
+      <button type="button" id="locateBtn" title="Use my current location">🗺️</button>
+    </form>
+
+    <div id="statusArea" class="status-area" aria-live="polite"></div>
+
+    <section id="weatherCard" class="weather-card hidden">
+      <div class="weather-main">
+        <div>
+          <h2 id="cityName">--</h2>
+          <p id="cityMeta" class="city-meta">--</p>
+        </div>
+        <div class="temp-block">
+          <span id="weatherIcon" class="weather-icon">⛅</span>
+          <span id="temperature" class="temperature">--°C</span>
+        </div>
+      </div>
+      <p id="condition" class="condition">--</p>
+
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <span class="metric-icon">🤔</span>
+          <span class="metric-label">Feels Like</span>
+          <span id="feelsLike" class="metric-value">--°C</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-icon">💧</span>
+          <span class="metric-label">Humidity</span>
+          <span id="humidity" class="metric-value">--%</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-icon">💨</span>
+          <span class="metric-label">Wind Speed</span>
+          <span id="windSpeed" class="metric-value">-- km/h</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-icon">🧭</span>
+          <span class="metric-label">Wind Direction</span>
+          <span id="windDir" class="metric-value">--°</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-icon">☔</span>
+          <span class="metric-label">Precipitation</span>
+          <span id="precip" class="metric-value">-- mm</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-icon">🌡️</span>
+          <span class="metric-label">Pressure</span>
+          <span id="pressure" class="metric-value">-- hPa</span>
+        </div>
+      </div>
+
+      <h3 class="forecast-title">5-Day Forecast</h3>
+      <div id="forecastRow" class="forecast-row"></div>
+
+      <p class="updated-at">Last updated: <span id="updatedAt">--</span></p>
+    </section>
+
+    <div id="historyArea" class="history-area"></div>
+  </div>
+
+  <script src="weather-script.js"></script>
+<footer class="app-footer">
+<div>
+<p> Weather Data via Open-Meteo REST API </p>
+<p>&copy; 2026 Sadanand Nandkishor Ukey. All right reserved. </p>
+</div>
+</footer>
+</body>
+</html>
